@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteBase /
+
+# Force NOWWW
+RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
+RewriteRule ^ http://%1%{REQUEST_URI} [R=302,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} =off
+RewriteCond %{REQUEST_URI} /(login|account_detail|alternate_address|update_password)(/|$)
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
+
+# Force HTTP
+RewriteCond %{HTTPS} =on
+RewriteCond %{REQUEST_URI} !/(login|account_detail|alternate_address|update_password|css|img|js)(/|$)
+RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond $1 !^(index\.php|images|less|css|js|fonts|robots\.txt|css|less|docs|js|system)
+  RewriteRule ^(.*)$ /index.php?/$1 [L]

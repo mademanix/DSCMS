@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="editorApp">
+<head>
+	<title>preLudium | fancy editor</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css" /> -->
+	<link rel="stylesheet" type="text/css" href="editor.css" />
+	<link rel="shortcut icon" href="img/icon.png" />
+	<!-- Angular Prelude -->
+	<script src="angular/angular.js"></script>
+	<script src="angular/angular-animate.js"></script>
+	<script src="angular/angular-route.js"></script>
+	<script src="angular/i18n/angular-locale_pl.js"></script>
+	<!-- Scripts -->
+	<script src="js/editor.js"></script>
+
+</head>
+<body ng-controller="EditorCtrl">
+	<nav class="navbar navbar-default" role="navigation"> <!-- to musi byc fixed. i chowane -->
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Rozwiń...</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">{{editor.filename}}</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">Open</a></li>
+					<li><a href="#">Save</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<form name="myForm" class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" name="search" class="form-control" placeholder="Search...">
+						</div>
+					</form>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Color schema</a></li>
+							<li><a href="#">Addons</a></li>
+							<li><a href="#">Code Formatting</a></li>
+							<li><a data-toggle="modal" href='#modal-id'>About preLudium...</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-1">
+				<div class="linear">1<br/>2<br/>
+				</div>
+			</div>
+			<div class="col-xs-11">
+				<div class="editor" contenteditable="true" ng-keypress="enterPressed($event)">
+	    			Edytor w fazie tes... Kogo ja oszukuję, stworzyłem wyłącznie widok, bawię się Angularem, więc...<br/>
+	    			Edytor W FAZIE TWORZENIA
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal-id">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title">preLudium</h4>
+											<h5 class="modal-title">(pisane właśnie w taki sposób, a nie inny...)</h5>
+										</div>
+										<div class="modal-body">
+											preLudium "został" (hehe) stworzony przeze mnie, siarzewskiego. Chcesz mieć to na serwerze? Śmiało, kopiuj i korzystaj, jeśli masz odwagę. <br/> <br/>
+											preLudium oparty jest o AngularJS, Bootstrap 3 i <abbr title="Zaawansowaną Technologię Pogańskich Masonów">ZTPM</abbr>. Najważniejsze jest to, że to... "działa" (znaczy będzie; jestem leniwy, robię tekst na zaś).
+											<br/></br/>
+											Wtyczki, schemat kolorów, formatowanie kodu... Huhu. Prawie jak Sublime Text 3.
+										</div>
+									</div>
+								</div>
+							</div>
+	<script src="js/jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>	
+
+</body>
+</html>
